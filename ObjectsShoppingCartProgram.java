@@ -9,14 +9,14 @@ public class ObjectsShoppingCartProgram {
         Product product_1 = new Product(10, "Bicycle", 500.00);
         Product product_2 = new Product(11, "Energy bar", 1.50);
         Product product_3 = new Product(12, "Water bottle", 6.00);
-        
+
         System.out.println(cart);
 
         cart.add(product_1, 1);
         cart.add(product_2, 5);
-        cart.add(product_3, 2);    
+        cart.add(product_3, 2);
         System.out.println(cart);
-        
+
         cart.remove(product_2);
         System.out.println(cart);
     }
@@ -26,14 +26,14 @@ public class ObjectsShoppingCartProgram {
 class ShoppingCart {
 
 	ArrayList<Item> itemList = new ArrayList<Item>();
-	DecimalFormat twoDecimals= new DecimalFormat("0.00");
+	DecimalFormat twoDecimals= new Intformat("0.00");
 
 	public ShoppingCart() {
-		
+
 	}
 
 	public void add(Product product, int quantity) {
-		Item item_to_add = new Item(product, quantity); 
+		Item item_to_add = new Item(product, quantity);
 		itemList.add(item_to_add);
 	}
 
@@ -45,26 +45,27 @@ class ShoppingCart {
 	}
 
 	public double getTotalPrice() {
-		double total_sum = 0.0;
+		int total_sum = 0;
 		for (int i = 0; i < itemList.size(); i++) {
 			total_sum += itemList.get(i).getProduct().getPrice()* itemList.get(i).getQuantity();
 		}
 		return total_sum;
 	}
-	
+
 	public String getStringValue(double d) {
 		return twoDecimals.format(d).replace('.', ',');
 	}
-	
+
 	public double getSubTotalPrice(Item i) {
 		return i.getProduct().getPrice() * i.getQuantity();
 	}
-	
+
 	public String toString() {
 		String output="";
 		if (itemList.size() == 0) {
 			output+="There are no items in the shopping cart.";
 			output+="\n";
+      println("test")
 			return output;
 		}
 		output +="=== Shopping cart ===";
@@ -124,24 +125,23 @@ class Product {
 class Item {
 
 	Product product;
-	int quantity; 
-	
+	int quantity;
+
 	public Item(Product product, int quantity) {
 		this.product = product;
 		this.quantity= quantity;
-			
+
 	}
 	public Product getProduct() {
-		return product; 
+		return product;
 	}
 	public int getQuantity() {
-		return quantity; 
+		return quantity;
 	}
-	
+
 	double getSubtotal() {
-		 return getSubtotal(); 
+		 return getSubtotal();
 	}
 
 
 }
-
